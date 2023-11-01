@@ -12,4 +12,19 @@ const firebaseConfig = {
 
 export const fireconfig = data;
 
-import { initializeAuth } from 'firebase/auth';
+import { initializeApp } from 'firebase/app';
+import { Firestore, getFirestore } from 'firebase/firestore';
+import { Auth, getAuth } from 'firebase/auth';
+
+let db: Firestore;
+let auth: Auth;
+
+function initializeFirebase() {
+    const app = initializeApp(firebaseConfig);
+    db = getFirestore(app);
+    auth = getAuth(app);
+}
+
+initializeFirebase();
+
+export { initializeFirebase, db, auth };
