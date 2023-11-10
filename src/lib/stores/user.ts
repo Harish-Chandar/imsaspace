@@ -4,7 +4,7 @@ import { auth } from '../config';
 
 export function userStore() {
 
-  const { subscribe, set, update } = writable({...auth.currentUser, 'loggedIn': false});
+  const { subscribe, set, update } = writable({...auth.currentUser, 'loggedIn': false });
 
   onAuthStateChanged(auth, (user) => {
     if (user) {
